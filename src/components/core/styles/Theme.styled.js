@@ -1,68 +1,95 @@
 export const light = {
   name: "light-theme",
   colors: {
-    header: "#f9fcff",
-    headerDark: "#000000",
+    header: "#dee4ea",
+    headerDark: "#434343",
     headerGradient: "linear-gradient(315deg, #f9fcff 0%, #dee4ea  74%)",
     headerGradientDark: "linear-gradient(315deg, #000000 0%, #434343  74%)",
-    rightSidebarGradient: "linear-gradient(135deg, #f9fcff 0%, #dee4ea  74%)",
+    rightSidebarGradient: "linear-gradient(0deg, #f9fcff 0%, #dee4ea  74%)",
     rightSidebarGradientDark:
-      "linear-gradient(135deg, #000000 0%, #434343  74%)",
+      "linear-gradient(0deg, #000000 0%, #434343  74%)",
     pageContent:
       "linear-gradient(to right top, #f9fcff, #f4f7fb, #eff3f7, #eaeef3, #dee4ea, #dee4ea, #dee4ea, #dee4ea, #eaeef3, #eff3f7, #f4f7fb, #f9fcff);",
     pageContentDark:
       "linear-gradient(to left bottom, #000000, #121212, #1d1d1d, #282828, #434343, #434343, #434343, #434343, #282828, #1d1d1d, #121212, #000000)",
     background: "hsl(0, 0%, 100%)",
     footer: "hsl(0, 1%, 38%)",
-    text: "hsl(0, 1%, 16%)",
+    text: "#000000",
+    textContent:"#000000",
+    textContentDark:"#ffffff",
     textDark: "#ffffff",
     border: "hsl(0, 0%, 87%)",
-    contentWrapper: "#dee4ea",
+    contentWrapper: "#f9fcff",
     contentWrapperDark: "#434343",
+    auxiliarCor:"#f9fcff",
+    auxiliarCorDark:"#000000",
+
   },
 };
 
 export const dark = {
   name: "dark-theme",
   colors: {
-    header: "#96c8fb",
+    header: "#004AAD",
     headerDark: "#993D70",
-    headerGradient: "linear-gradient(315deg, #96c8fb 0%, #ddbdfc 74%)",
+    headerGradient: "linear-gradient(350deg, #ECEEFF 0%, #004AAD 74%)",
     headerGradientDark: "linear-gradient(315deg, #94AEEA 0%, #993D70  74%)",
-    rightSidebarGradient: "linear-gradient(135deg, #96c8fb 0%, #ddbdfc 74%)",
+    rightSidebarGradient: "linear-gradient(0deg, #ECEEFF , #004AAD 74%)",
     rightSidebarGradientDark:
       "linear-gradient(135deg, #94AEEA 0%, #993D70  74%)",
     pageContent:
-      "linear-gradient(to right top, #96c8fb, #a2c6fe, #afc5ff, #ddbdfc, #ddbdfc, #ddbdfc, #ddbdfc, #ddbdfc, #bdc2ff, #afc5ff, #a2c6fe, #96c8fb);",
+      "linear-gradient(to left top, #004aad, #4b66bd , #4b66bd, #98a2dc, #ECEEFF, #ECEEFF, #ECEEFF, #ECEEFF, #98a2dc, #4b66bd, #4b66bd, #004aad);",
 
     pageContentDark:
-      "linear-gradient(to right bottom, #993d70, #9d538d, #9793D3, #9793d3, #9793d3, #9793d3, #9793d3, #9793d3, #9793d3, #9793D3, #9d538d, #993d70)",
+      "linear-gradient(to right bottom, #004aad, #4b66bd , #7483cd, #98a2dc, #bcc2eb, #bcc2eb, #bcc2eb, #bcc2eb, #98a2dc, #7483cd, #4b66bd, #004aad)",
     background: "hsl(0, 1%, 16%)",
     footer: "hsl(0, 0%, 93%)",
-    text: "#993D70",
+    text: "#000000",
+    textContent:"#ffffff",
+    textContentDark:"#000000",
     textDark: "#00DFF2",
     quoteBgc: "hsl(0, 0%, 35%)",
     quoteTitle: "hsl(0, 0%, 100%)",
     quoteBody: "hsl(0, 0%, 100%)",
     quoteBorder: "hsl(0, 0%, 59%)",
     border: "hsl(0, 0%, 78%)",
-    contentWrapper: "#94AEEA",
+    contentWrapper: "#ffffff",
     contentWrapperDark: "#9d538d",
+    auxiliarCor:"#ECEEFF",
+    auxiliarCorDark:"#004aad",
   },
 };
 
 export const blue = {
   name: "blue-theme",
   colors: {
-    header: "hsl(195, 53%, 79%)",
-    background: "hsl(194, 100%, 97%)",
-    footer: "hsl(195, 52%, 28%)",
-    text: "hsl(0, 1%, 16%)",
-    quoteBgc: "hsl(0, 0%, 100%)",
-    quoteTitle: "hsl(195, 52%, 28%)",
-    quoteBody: "hsl(0, 0%, 38%)",
-    quoteBorder: "hsl(0, 0%, 87%)",
-    border: "hsl(0, 0%, 87%)",
+    header: "#FD6809",
+    headerDark: "#993D70",
+    headerGradient: "linear-gradient(350deg, #FD6809 0%, #FD6809 74%)",
+    headerGradientDark: "linear-gradient(315deg, #94AEEA 0%, #993D70  74%)",
+    rightSidebarGradient: "linear-gradient(0deg, #FD6809 , #FD6809 74%)",
+    rightSidebarGradientDark:
+      "linear-gradient(135deg, #94AEEA 0%, #993D70  74%)",
+    pageContent:
+      "linear-gradient(to left top, #004aad, #4b66bd , #4b66bd, #98a2dc, #ECEEFF, #ECEEFF, #ECEEFF, #ECEEFF, #98a2dc, #4b66bd, #4b66bd, #004aad);",
+
+    pageContentDark:
+      "linear-gradient(to right bottom, #004aad, #4b66bd , #7483cd, #98a2dc, #bcc2eb, #bcc2eb, #bcc2eb, #bcc2eb, #98a2dc, #7483cd, #4b66bd, #004aad)",
+    background: "hsl(0, 1%, 16%)",
+    footer: "hsl(0, 0%, 93%)",
+    text: "#000000",
+    textContent:"#ffffff",
+    textContentDark:"#000000",
+    textDark: "#00DFF2",
+    quoteBgc: "hsl(0, 0%, 35%)",
+    quoteTitle: "hsl(0, 0%, 100%)",
+    quoteBody: "hsl(0, 0%, 100%)",
+    quoteBorder: "hsl(0, 0%, 59%)",
+    border: "hsl(0, 0%, 78%)",
+    contentWrapper: "#ffffff",
+    contentWrapperDark: "#9d538d",
+    auxiliarCor:"#ECEEFF",
+    auxiliarCorDark:"#004aad",
   },
 };
 

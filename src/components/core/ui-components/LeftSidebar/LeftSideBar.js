@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Navigate } from "react-router-dom";
 import {
   LeftSidebarWrapper,
   Logo,
@@ -7,6 +8,7 @@ import {
   StyledListItemText,
   ListSubheaderStyled,
   StyledListSubItemButton,
+  StyledCollapse,
 } from "../../styles/LeftSidebar/LeftSideBar.styled";
 import { Toolbar, Collapse } from "@mui/material";
 import { alpha } from "@mui/material/styles";
@@ -27,11 +29,50 @@ const IconComponent = ({ iconName }) => {
 };
 
 const LeftSidebar = ({ menuItems, showLeftSidebar }) => {
+  const [selectedRoute, setSelectedRoute] = useState(null);
+
+  const handleClickMenuItem = (item, subItem) => {
+    
+    handleClick(item, subItem, setSelectedRoute, menuItems);
+  };
+  const handleClick = (
+    item,
+    subItem,
+    setSelectedRoute,
+    menuItems
+  ) => {
+    if (item === "logo") {
+      setSelectedRoute("/");
+      return;
+    }
+  
+    if (subItem) {
+      if (subItem.route) {
+        setSelectedRoute(subItem.route);
+      } else {
+        setSelectedRoute(null);
+      }
+    } else {
+      setOpenIcons((prevOpenIcons) => ({
+        ...prevOpenIcons,
+        [item]: !prevOpenIcons[item],
+      }));
+  
+      const menuItem = menuItems?.find((menuItem) => menuItem.id === item);
+      if (menuItem && menuItem.route) {
+        setSelectedRoute(menuItem.route);
+      } else {
+        setSelectedRoute(null);
+      }
+    }
+  };
+
   const sections = Array.from(
     new Set(menuItems?.map((menuItem) => menuItem.section))
   );
   const [openIcons, setOpenIcons] = useState({});
   const handleSubMenuToggle = (itemId) => {
+    console.log(itemId);
     setOpenIcons((prevOpenIcons) => {
       const updatedOpenIcons = { ...prevOpenIcons };
       Object.keys(updatedOpenIcons).forEach((key) => {
@@ -46,10 +87,12 @@ const LeftSidebar = ({ menuItems, showLeftSidebar }) => {
 
   return (
     <LeftSidebarWrapper showLeftSidebar={showLeftSidebar}>
+      {selectedRoute && <Navigate to={selectedRoute} replace={true} />}
       <Toolbar>
         <Logo
           src={process.env.PUBLIC_URL + "/assets/images/logo.png"}
           alt="Logo"
+          onClick={() => handleClickMenuItem("logo", null)}
         />
       </Toolbar>
       <StyledList>
@@ -63,12 +106,14 @@ const LeftSidebar = ({ menuItems, showLeftSidebar }) => {
                 if (menuItem.section === section) {
                   return (
                     <React.Fragment key={menuItem.text}>
+                      {menuItem.hasSubItems ? (
                       <StyledListItemButton
                         showLeftSidebar={showLeftSidebar}
                         onClick={() => handleSubMenuToggle(menuItem.id)}
                       >
                         {menuItem.hasSubItems &&
                           (openIcons?.[menuItem.id] ? (
+                            
                             <Icons.ExpandLess
                               sx={{
                                 minWidth: 0,
@@ -84,8 +129,17 @@ const LeftSidebar = ({ menuItems, showLeftSidebar }) => {
                         <IconComponent iconName={menuItem.icon} />
                         <StyledListItemText>{menuItem.text}</StyledListItemText>
                       </StyledListItemButton>
+                      ):(
+                        <StyledListItemButton
+                        showLeftSidebar={showLeftSidebar}
+                        onClick={() => handleClick(menuItem.id, null,setSelectedRoute, menuItems)}
+                        >
+                           <IconComponent iconName={menuItem.icon} />
+                        <StyledListItemText>{menuItem.text}</StyledListItemText>
+                        </StyledListItemButton>
+                      )}
                       {menuItem.hasSubItems && (
-                        <Collapse
+                        <StyledCollapse
                           in={openIcons?.[menuItem.id]}
                           timeout="auto"
                           unmountOnExit
@@ -95,6 +149,7 @@ const LeftSidebar = ({ menuItems, showLeftSidebar }) => {
                               <StyledListSubItemButton
                                 key={subItem.text}
                                 showLeftSidebar={showLeftSidebar}
+                                onClick={() => handleClick(menuItem.id, subItem,setSelectedRoute, menuItems)}
                               >
                                 <div
                                   style={{
@@ -112,7 +167,7 @@ const LeftSidebar = ({ menuItems, showLeftSidebar }) => {
                               </StyledListSubItemButton>
                             ))}
                           </StyledList>
-                        </Collapse>
+                        </StyledCollapse>
                       )}
                     </React.Fragment>
                   );

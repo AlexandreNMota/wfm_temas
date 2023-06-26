@@ -14,6 +14,10 @@ body {
   color: ${({ theme }) => theme.colors.text};
   font-family: monospace;
   overflow-x: hidden;
+
+  & .MuiTypography-root{
+    color: ${({ theme }) => theme.colors.textContent};
+  }
 }
 // theme buttons color
 .light {

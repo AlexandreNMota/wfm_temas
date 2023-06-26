@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, createContext, useEffect, useContext } from "react";
 import {
   PageContentWrapper,
   InnerContent,
@@ -12,12 +12,17 @@ import {
   brown,
   pink,
 } from "../../styles/Theme.styled";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { RoutesContext, RoutesElement } from '../../../../routes';
 const PageContent = ({ selectedTheme, HandleThemeChange, switchColors }) => {
+  const routes = useContext(RoutesContext);
   return (
     <PageContentWrapper>
       <InnerContent>
         <ThemeContainer>
-          <h1>HOME</h1>
+        <RoutesContext.Provider value={routes}>
+          <RoutesElement />
+        </RoutesContext.Provider>
         </ThemeContainer>
       </InnerContent>
     </PageContentWrapper>

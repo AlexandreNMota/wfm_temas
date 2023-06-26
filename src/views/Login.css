@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
+:root {
+    --white: #FFFFFF;
+    --color: rgba(255, 255, 255, 0.4);
+    --background-img: rgba(255, 255, 255, 0.65);
+  }
+
+.grid-container {
+    background-color: #073377;
+}
+
+.login-message {
+    font-family: 'Inter', sans-serif;
+    color: black;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.login-title {
+    display: flex;
+    color: var(--color);
+}
+
+.login-remember {
+    display: flex !important;
+    color: var(--color);
+}
+
+.grid-img {
+    background-image: url(../../public/assets/images/login.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: var(--background-img);
+}
+
+.grid-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-logo {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.box-login {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

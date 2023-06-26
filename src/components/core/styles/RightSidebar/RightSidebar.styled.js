@@ -1,13 +1,19 @@
 import styled from "styled-components";
 import { IconButton } from "@mui/material";
 import { alpha } from "@mui/material/styles";
+
 export const RightSidebar = styled.div`
   background-color: ${({ theme }) => theme.colors.header};
-  background-image: ${({ theme }) => theme.colors.rightSidebarGradient};
-  width: ${({ showRightSidebar }) => (showRightSidebar ? "240px" : "0")};
+  width: ${({ showRightSidebar }) => (showRightSidebar ? "250px" : "0")};
   transition: width 0.3s ease;
   display: flex;
   flex-direction: column;
+
+  & .MuiTypography-root{
+    color: ${({ theme }) => theme.colors.textContent};
+  }
+
+  
 `;
 
 export const RightSideBarInnerContainer = styled.div`
@@ -26,7 +32,7 @@ export const RightSideBarContent = styled.div`
   align-items: center;
   width: 100%;
   padding-bottom: 20px;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.text};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.textContent};
 `;
 
 export const CloseRightSideBarButton = styled(IconButton)`
@@ -38,7 +44,7 @@ export const CloseRightSideBarButton = styled(IconButton)`
   }
 
   & .MuiSvgIcon-root {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.textContent};
   }
 `;
 export const RadioContainer = styled.div`
@@ -52,8 +58,29 @@ export const RadioLabel = styled.label`
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  color: ${({ theme }) => theme.colors.textContent};
 `;
 
 export const RadioInput = styled.input`
   margin-right: 8px;
+`;
+export const LabelSection = styled.div`
+  display: flex;
+  justify-content: center;
+  color: ${({ theme }) => theme.colors.textContent};
+`;
+
+export const PersonalizarContainer = styled.div`
+display:flex;
+align-items:center;
+justify-content:space-between;
+color: ${({ theme }) => theme.colors.textContent};
+border-bottom: 1px solid ${({ theme }) => theme.colors.textContent};
+height:50px;
+
+& .MuiIconButton-root{
+  padding:5px;
+  display:inline-block;
+  
+}
 `;

@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
+import Divider from '@mui/material/Divider';
+import Button from '@mui/material/Button';
+import { Avatar, AvatarGroup, FormControl, FormControlLabel, FormLabel, Grid, IconButton, Radio, RadioGroup, Typography } from '@mui/material';
+import CheckIcon from '@mui/icons-material/Check';
 import {
   RightSidebar,
   CloseRightSideBarButton,
@@ -8,16 +12,15 @@ import {
   RadioContainer,
   RadioLabel,
   RadioInput,
+  LabelSection,
+  PersonalizarContainer,
 } from "../../styles/RightSidebar/RightSidebar.styled";
 import {
   light,
   dark,
   blue,
-  green,
-  brown,
-  pink,
 } from "../../styles/Theme.styled";
-import { ThemeContainer, ThemeButton } from "../../styles/ThemeSwitcher.styled";
+
 
 const RightSideBar = ({
   showRightSidebar,
@@ -27,75 +30,73 @@ const RightSideBar = ({
   switchColors,
   selectedOption,
 }) => {
+  
+
   return (
     <RightSidebar showRightSidebar={showRightSidebar}>
       {showRightSidebar && (
         <>
-          <RightSideBarInnerContainer>
-            <CloseRightSideBarButton onClick={toggleRightSidebar}>
+          <Grid container sx={{display: 'flex', alignItems: 'center', padding:'20px'}}>
+          <Grid item xs={10} md={10}>
+            <Typography>Personalizar Sistema</Typography>
+        </Grid>
+        <Grid item xs={2} md={2}>
+        <CloseRightSideBarButton onClick={toggleRightSidebar}>
               <CloseIcon></CloseIcon>
             </CloseRightSideBarButton>
-          </RightSideBarInnerContainer>
-          <RightSideBarContent>
-            <h3>Personalizar Sistema</h3>
-          </RightSideBarContent>
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <h3 style={{ marginTop: "10px" }}>Modo</h3>
-          </div>
-          <RightSideBarContent>
-            <RadioContainer>
-              <RadioLabel>
-                <RadioInput
-                  type="radio"
-                  value="claro"
-                  checked={selectedOption === "claro"}
-                  onChange={switchColors}
-                />
-                Claro
-              </RadioLabel>
-              <RadioLabel>
-                <RadioInput
-                  type="radio"
-                  value="escuro"
-                  checked={selectedOption === "escuro"}
-                  onChange={switchColors}
-                />
-                Escuro
-              </RadioLabel>
-            </RadioContainer>
-          </RightSideBarContent>
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <h3 style={{ marginTop: "10px" }}>Temas</h3>
-          </div>
-          <RightSideBarContent>
-            <ThemeContainer>
-              <ThemeButton
-                className={`light ${selectedTheme === light ? "active" : ""}`}
-                onClick={() => HandleThemeChange(light)}
-              ></ThemeButton>
-              <ThemeButton
-                className={`dark ${selectedTheme === dark ? "active" : ""}`}
-                onClick={() => HandleThemeChange(dark)}
-              ></ThemeButton>
-              <ThemeButton
-                className={`blue ${selectedTheme === blue ? "active" : ""}`}
-                onClick={() => HandleThemeChange(blue)}
-              ></ThemeButton>
-              <ThemeButton
-                className={`green ${selectedTheme === green ? "active" : ""}`}
-                onClick={() => HandleThemeChange(green)}
-              ></ThemeButton>
-              <ThemeButton
-                className={`brown ${selectedTheme === brown ? "active" : ""}`}
-                onClick={() => HandleThemeChange(brown)}
-              ></ThemeButton>
-              <ThemeButton
-                className={`pink ${selectedTheme === pink ? "active" : ""}`}
-                onClick={() => HandleThemeChange(pink)}
-              ></ThemeButton>
-            </ThemeContainer>
-          </RightSideBarContent>
+        </Grid>
+          </Grid>
+          <Divider />
+          <Grid container sx={{display: 'flex', alignItems: 'center', padding:'20px'}}>
+          <FormControl>
+          <Grid container sx={{display: 'flex', alignItems: 'center'}}>
+                <Grid item xs={12} md={12}>
+                    <Typography>Modo</Typography>
+                    <RadioGroup
+                            row
+                            aria-labelledby="mode"
+                            name="mode-group"
+                            value={selectedOption}
+                            onChange={switchColors}
+                        >
+                           <FormControlLabel value="claro" control={<Radio sx={{"&.Mui-checked": {
+                    color: selectedTheme.colors.headerDark,
+                  },}} />} label="Claro" />
+                          <FormControlLabel value="escuro" control={<Radio sx={{"&.Mui-checked": {
+                    color: selectedTheme.colors.headerDark,
+                  },}} />} label="Escuro" />
+                        </RadioGroup>
+                        <Divider />
+                </Grid>
+                <Grid item xs={12} md={12} sx={{ padding:'20px'}}>
+                    <Typography>Tema</Typography>
+                    <AvatarGroup 
+                        variant="rounded" 
+                        sx={{display: 'flex', justifyContent: 'center'}}
+                        >
+                        <Avatar sx={{ bgcolor: '#716F70', mr: 2 }}>
+                            <Button sx={{width: '100%', height: '100%'}} onClick={() => HandleThemeChange(light)}>
+                                {selectedTheme === light ? <CheckIcon sx={{color: 'white'}} /> : ''}
+                            </Button>
+                        </Avatar>
+                        <Avatar sx={{ bgcolor: '#004AAD', mr: 2 }}>
+                            <Button sx={{width: '100%', height: '100%'}} onClick={() => HandleThemeChange(dark)}>
+                            {selectedTheme === dark ? <CheckIcon sx={{color: 'white'}} /> : ''}
+                            </Button>
+                        </Avatar>
+                        <Avatar sx={{ bgcolor: '#FD6809', mr: 2 }}>
+                            <Button sx={{width: '100%', height: '100%'}} onClick={() => HandleThemeChange(blue)}>
+                            {selectedTheme === blue ? <CheckIcon sx={{color: 'white'}} /> : ''}
+                            </Button>
+                        </Avatar>
+                    </AvatarGroup>
+                </Grid>
+            </Grid>
+          </FormControl>
+          <Divider />
+          </Grid>
         </>
+        
       )}
     </RightSidebar>
   );

@@ -5,7 +5,6 @@ import { alpha } from "@mui/material/styles";
 // Container da topbar
 export const Topbar = styled.div`
   background-color: ${({ theme }) => theme.colors.header};
-  background-image: ${({ theme }) => theme.colors.headerGradient};
 `;
 
 // Botão para abrir ou fechar a leftsidebar
@@ -14,11 +13,11 @@ export const ViewLeftSideBarButton = styled(IconButton)`
 
   &:hover {
     background-color: ${({ theme }) =>
-      alpha(theme.colors.text, 0.5)} !important;
+      alpha(theme.colors.textContent, 0.5)} !important;
   }
 
   & .MuiSvgIcon-root {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.textContent};
   }
 `;
 
@@ -27,11 +26,11 @@ export const ViewRightSideBarButton = styled(IconButton)`
 
   &:hover {
     background-color: ${({ theme }) =>
-      alpha(theme.colors.text, 0.5)} !important;
+      alpha(theme.colors.textContent, 0.5)} !important;
   }
 
   & .MuiSvgIcon-root {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.textContent};
   }
 `;
 
@@ -41,20 +40,21 @@ export const Search = styled.div`
   padding: 20px !important;
   border-radius: 16px !important;
   background-color: ${({ theme }) =>
-    alpha(theme.colors.header, 0.5)} !important;
+    alpha(theme.colors.auxiliarCor, 0.3)} !important;
   margin-left: 0 !important;
-  width: ${({ isFocused }) => (isFocused ? "70%" : "50%")};
+  width: ${({ isFocused }) => (isFocused ? "60%" : "50%")};
   display: flex !important;
   align-items: center !important;
   transition: width 0.3s ease;
 
   &:hover {
     background-color: ${({ theme }) =>
-      alpha(theme.colors.header, 1)} !important;
+      alpha(theme.colors.auxiliarCor, 0.5)} !important;
   }
 `;
 
 export const SearchIconWrapper = styled.div`
+color: ${({ theme }) => theme.colors.textContent} !important;
   height: 100% !important;
   width: 100% !important;
   position: absolute !important;
@@ -64,9 +64,10 @@ export const SearchIconWrapper = styled.div`
 `;
 
 export const StyledInputBase = styled(InputBase)`
-  color: inherit !important;
+color: ${({ theme }) => theme.colors.textContent} !important;
   width: 100% !important;
   & .MuiInputBase-input {
+    color: ${({ theme }) => theme.colors.textContent} !important;
     width: 100% !important;
   }
   &:focus ~ ${Search} {
@@ -77,11 +78,11 @@ export const StyledInputBase = styled(InputBase)`
 export const NotificationsButton = styled(IconButton)`
   &:hover {
     background-color: ${({ theme }) =>
-      alpha(theme.colors.text, 0.5)} !important;
+      alpha(theme.colors.textContent, 0.5)} !important;
   }
 
   & .MuiSvgIcon-root {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.textContent};
   }
 `;
 export const ProfileContainer = styled.div`
@@ -91,12 +92,12 @@ export const ProfileContainer = styled.div`
 
   &:hover {
     background-color: ${({ theme }) =>
-      alpha(theme.colors.textDark, 0.5)} !important;
+    alpha(theme.colors.auxiliarCor, 0.5)} !important;
   }
 `;
 export const ProfileName = styled.h4`
   opacity: 0;
-  color: ${({ theme }) => theme.colors.text} !important;
+  color: ${({ theme }) => theme.colors.textContent} !important;
   margin-left: 20px;
   transition: opacity 0.3s ease;
 
@@ -114,9 +115,9 @@ export const ProfileButton = styled(Button)`
   }
 `;
 export const ProfileAvatar = styled(Avatar)`
-  color: ${({ theme }) => theme.colors.text} !important;
+  color: ${({ theme }) => theme.colors.textContent} !important;
   transition: opacity 0.3s ease !important;
-  background-color: ${({ theme }) => alpha(theme.colors.text, 0.1)} !important;
+  background-color: ${({ theme }) => alpha(theme.colors.textContent, 0.1)} !important;
   &:hover {
     background-color: ${({ theme }) =>
       alpha(theme.colors.textDark, 0.1)} !important;
