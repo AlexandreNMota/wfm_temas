@@ -23,6 +23,8 @@ export const light = {
     contentWrapperDark: "#434343",
     auxiliarCor:"#f9fcff",
     auxiliarCorDark:"#000000",
+    corPrimaria:"#000000",
+    corPrimariaDark:"#ffffff",
 
   },
 };
@@ -57,6 +59,8 @@ export const dark = {
     contentWrapperDark: "#9d538d",
     auxiliarCor:"#ECEEFF",
     auxiliarCorDark:"#004aad",
+    corPrimaria:"#004AAD",
+    corPrimariaDark:"#ffffff",
   },
 };
 
@@ -90,6 +94,8 @@ export const blue = {
     contentWrapperDark: "#9d538d",
     auxiliarCor:"#ECEEFF",
     auxiliarCorDark:"#004aad",
+    corPrimaria:"#FD6809",
+    corPrimariaDark:"#ffffff",
   },
 };
 

@@ -108,8 +108,13 @@ const PageLayout = ({getSelectedTheme}) => {
     updatedTheme.colors.contentWrapper = updatedTheme.colors.contentWrapperDark;
     updatedTheme.colors.contentWrapperDark = tempColorContentWrapper;
 
+    const tempColorPrimaria = updatedTheme.colors.corPrimaria;
+    updatedTheme.colors.corPrimaria = updatedTheme.colors.corPrimariaDark;
+    updatedTheme.colors.corPrimariaDark = tempColorPrimaria;
+
     HandleThemeChange(updatedTheme);
     getSelectedTheme(updatedTheme);
+    
   };
 
 

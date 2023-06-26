@@ -59,10 +59,10 @@ const RightSideBar = ({
                             value={selectedOption}
                             onChange={switchColors}
                         >
-                           <FormControlLabel value="claro" control={<Radio sx={{"&.Mui-checked": {
+                           <FormControlLabel value="claro" disabled={ selectedTheme.name !== 'light-theme'} control={<Radio sx={{"&.Mui-checked": {
                     color: selectedTheme.colors.headerDark,
                   },}} />} label="Claro" />
-                          <FormControlLabel value="escuro" control={<Radio sx={{"&.Mui-checked": {
+                          <FormControlLabel value="escuro"  disabled={ selectedTheme.name !== 'light-theme'} control={<Radio sx={{"&.Mui-checked": {
                     color: selectedTheme.colors.headerDark,
                   },}} />} label="Escuro" />
                         </RadioGroup>

@@ -33,7 +33,7 @@ export const Logo = styled.img`
   cursor:pointer;
 `;
 export const StyledList = styled(List)`
-  margin-top: 60px;
+  margin-top: 0px;
   background-color: transparent !important;
 `;
 

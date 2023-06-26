@@ -15,7 +15,7 @@ import { StyledEngineProvider } from '@mui/material/styles';
 
 const App = () => {
   const [temaSelecionado, setTemaSelecionado] = useState({colors:{
-    headerDark:'#000000', header:'#ffffff'
+    corPrimaria:'#000000', corPrimariaDark:'#ffffff'
   }});
   const navigate = useNavigate();
 const dispatch = useDispatch()
@@ -40,8 +40,8 @@ const getSelectedTheme = (selectedTheme) =>{
 const tema = createTheme({
   palette:{
       primary: {
-        main: temaSelecionado.colors.header,
-        contrastText: temaSelecionado.colors.header,
+        main: temaSelecionado.colors.corPrimaria,
+        contrastText: temaSelecionado.colors.corPrimaria,
       },
   },
 });
