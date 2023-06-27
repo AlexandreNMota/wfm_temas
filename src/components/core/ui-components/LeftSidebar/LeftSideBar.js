@@ -28,7 +28,7 @@ const IconComponent = ({ iconName }) => {
   );
 };
 
-const LeftSidebar = ({ menuItems, showLeftSidebar }) => {
+const LeftSidebar = ({ menuItems, showLeftSidebar, sidebarControl }) => {
   const [selectedRoute, setSelectedRoute] = useState(null);
 
   const handleClickMenuItem = (item, subItem) => {
@@ -86,7 +86,7 @@ const LeftSidebar = ({ menuItems, showLeftSidebar }) => {
   };
 
   return (
-    <LeftSidebarWrapper showLeftSidebar={showLeftSidebar}>
+    <LeftSidebarWrapper showLeftSidebar={showLeftSidebar} sidebarControl={sidebarControl}>
       {selectedRoute && <Navigate to={selectedRoute} replace={true} />}
       <Toolbar>
         <Logo
@@ -99,7 +99,7 @@ const LeftSidebar = ({ menuItems, showLeftSidebar }) => {
         {menuItems &&
           sections.map((section) => (
             <React.Fragment key={section}>
-              <ListSubheaderStyled showLeftSidebar={showLeftSidebar}>
+              <ListSubheaderStyled showLeftSidebar={showLeftSidebar} sidebarControl={sidebarControl}>
                 {section}
               </ListSubheaderStyled>
               {menuItems.map((menuItem) => {
@@ -109,6 +109,7 @@ const LeftSidebar = ({ menuItems, showLeftSidebar }) => {
                       {menuItem.hasSubItems ? (
                       <StyledListItemButton
                         showLeftSidebar={showLeftSidebar}
+                        sidebarControl={sidebarControl}
                         onClick={() => handleSubMenuToggle(menuItem.id)}
                       >
                         {menuItem.hasSubItems &&
@@ -132,6 +133,7 @@ const LeftSidebar = ({ menuItems, showLeftSidebar }) => {
                       ):(
                         <StyledListItemButton
                         showLeftSidebar={showLeftSidebar}
+                        sidebarControl={sidebarControl}
                         onClick={() => handleClick(menuItem.id, null,setSelectedRoute, menuItems)}
                         >
                            <IconComponent iconName={menuItem.icon} />
@@ -144,11 +146,12 @@ const LeftSidebar = ({ menuItems, showLeftSidebar }) => {
                           timeout="auto"
                           unmountOnExit
                         >
-                          <StyledList showLeftSidebar={showLeftSidebar}>
+                          <StyledList showLeftSidebar={showLeftSidebar} sidebarControl={sidebarControl}>
                             {menuItem.subItems.map((subItem) => (
                               <StyledListSubItemButton
                                 key={subItem.text}
                                 showLeftSidebar={showLeftSidebar}
+                                sidebarControl={sidebarControl}
                                 onClick={() => handleClick(menuItem.id, subItem,setSelectedRoute, menuItems)}
                               >
                                 <div

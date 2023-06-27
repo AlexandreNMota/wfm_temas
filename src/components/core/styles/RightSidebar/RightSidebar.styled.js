@@ -8,12 +8,14 @@ export const RightSidebar = styled.div`
   transition: width 0.3s ease;
   display: flex;
   flex-direction: column;
+  box-shadow: ${({ showRightSidebar }) =>
+    showRightSidebar
+      ? "0px 8px 10px -5px rgba(0, 0, 0, 0.2),0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12)"
+      : "none"};
 
-  & .MuiTypography-root{
+  & .MuiTypography-root {
     color: ${({ theme }) => theme.colors.textContent};
   }
-
-  
 `;
 
 export const RightSideBarInnerContainer = styled.div`
@@ -71,16 +73,15 @@ export const LabelSection = styled.div`
 `;
 
 export const PersonalizarContainer = styled.div`
-display:flex;
-align-items:center;
-justify-content:space-between;
-color: ${({ theme }) => theme.colors.textContent};
-border-bottom: 1px solid ${({ theme }) => theme.colors.textContent};
-height:50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: ${({ theme }) => theme.colors.textContent};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.textContent};
+  height: 50px;
 
-& .MuiIconButton-root{
-  padding:5px;
-  display:inline-block;
-  
-}
+  & .MuiIconButton-root {
+    padding: 5px;
+    display: inline-block;
+  }
 `;

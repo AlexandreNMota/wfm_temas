@@ -17,11 +17,11 @@ import RightSideBar from "./RightSidebar/RightSidebar";
 import PageContent from "./PageContent/PageContent";
 import api from "../../../axios";
 
- const useMenu = () => {
+const useMenu = () => {
   const [error, setError] = useState(null);
   const menuItems = useSelector((state) => state.menu.list);
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.login.isAuthenticated)
+  const token = useSelector((state) => state.login.isAuthenticated);
   useEffect(() => {
     getMenu();
   }, []);
@@ -32,7 +32,7 @@ import api from "../../../axios";
       method: "POST",
       headers: {
         "Access-Control-Allow-Origin": "*",
-        Authorization: token ? `Bearer ${token}` : '',
+        Authorization: token ? `Bearer ${token}` : "",
       },
     };
 
@@ -50,9 +50,10 @@ import api from "../../../axios";
   return { menuItems, error };
 };
 
-
-
-const PageLayout = ({getSelectedTheme}) => {
+const PageLayout = ({ getSelectedTheme }) => {
+  const sidebarControl = useSelector(
+    (state) => state.sidebarControl.orientation
+  );
   const [selectedTheme, setSelectedTheme] = useState(light);
   const [showLeftSidebar, setShowLeftSidebar] = useState(true);
   const [showRightSidebar, setShowRightSidebar] = useState(false);
@@ -66,8 +67,6 @@ const PageLayout = ({getSelectedTheme}) => {
   const toggleRightSidebar = () => {
     setShowRightSidebar(!showRightSidebar);
   };
-
-
 
   const HandleThemeChange = (theme) => {
     setSelectedTheme(theme);
@@ -112,16 +111,15 @@ const PageLayout = ({getSelectedTheme}) => {
     updatedTheme.colors.corPrimaria = updatedTheme.colors.corPrimariaDark;
     updatedTheme.colors.corPrimariaDark = tempColorPrimaria;
 
+    const tempColorSecundaria = updatedTheme.colors.corSecundaria;
+    updatedTheme.colors.corSecundaria = updatedTheme.colors.corSecundariaDark;
+    updatedTheme.colors.corSecundariaDark = tempColorSecundaria;
+
     HandleThemeChange(updatedTheme);
     getSelectedTheme(updatedTheme);
-    
   };
 
-
-  
-
   return (
-   
     <ThemeProvider theme={selectedTheme}>
       <Container>
         <GlobalStyles />
@@ -129,6 +127,7 @@ const PageLayout = ({getSelectedTheme}) => {
         <LeftSideBar
           menuItems={menuItems}
           showLeftSidebar={showLeftSidebar}
+          sidebarControl={sidebarControl}
         ></LeftSideBar>
 
         <ContentWrapper>
@@ -136,6 +135,7 @@ const PageLayout = ({getSelectedTheme}) => {
             toggleLeftSidebar={toggleLeftSidebar}
             toggleRightSidebar={toggleRightSidebar}
             showRightSidebar={showRightSidebar}
+            showLeftSidebar={showLeftSidebar}
           />
           <Content>
             <PageContent
@@ -152,11 +152,9 @@ const PageLayout = ({getSelectedTheme}) => {
           HandleThemeChange={HandleThemeChange}
           switchColors={switchColors}
           selectedOption={selectedOption}
-        >
-          Right Sidebar Content
-        </RightSideBar>
+        ></RightSideBar>
       </Container>
-    </ThemeProvider>   
+    </ThemeProvider>
   );
 };
 

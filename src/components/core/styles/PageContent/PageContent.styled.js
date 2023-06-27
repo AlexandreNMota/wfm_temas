@@ -11,11 +11,9 @@ export const PageContentWrapper = styled.div`
 `;
 
 export const InnerContent = styled.div`
-  width: calc(100% - 20px);
-  height: calc(100% - 20px);
-  border-radius: 5px;
+  width: calc(100%);
+  height: calc(100%);
   background-color: ${({ theme }) => theme.colors.contentWrapper};
   display: flex;
   flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;

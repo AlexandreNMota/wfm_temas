@@ -12,20 +12,25 @@ import {
   brown,
   pink,
 } from "../../styles/Theme.styled";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { RoutesContext, RoutesElement } from '../../../../routes';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { RoutesContext, RoutesElement } from "../../../../routes";
 const PageContent = ({ selectedTheme, HandleThemeChange, switchColors }) => {
   const routes = useContext(RoutesContext);
   return (
-    <PageContentWrapper>
-      <InnerContent>
-        <ThemeContainer>
+    // <PageContentWrapper>
+    <InnerContent>
+      <ThemeContainer>
         <RoutesContext.Provider value={routes}>
           <RoutesElement />
         </RoutesContext.Provider>
-        </ThemeContainer>
-      </InnerContent>
-    </PageContentWrapper>
+      </ThemeContainer>
+    </InnerContent>
+    // </PageContentWrapper>
   );
 };
 
